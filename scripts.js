@@ -24,21 +24,21 @@
  */
 
 
-const FRESH_PRINCE_URL = "https://upload.wikimedia.org/wikipedia/en/3/33/Fresh_Prince_S1_DVD.jpg";
-const CURB_POSTER_URL = "https://m.media-amazon.com/images/M/MV5BZDY1ZGM4OGItMWMyNS00MDAyLWE2Y2MtZTFhMTU0MGI5ZDFlXkEyXkFqcGdeQXVyMDc5ODIzMw@@._V1_FMjpg_UX1000_.jpg";
-const EAST_LOS_HIGH_POSTER_URL = "https://static.wikia.nocookie.net/hulu/images/6/64/East_Los_High.jpg";
+const CHILDREN_OF_MEN_URL = "https://m.media-amazon.com/images/M/MV5BZjUzY2ZhZDAtZDRlNS00MzEzLTliZjItMzMyYzM2OTdkZGJjXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_FMjpg_UX1000_.jpg";
+const THE_GODFATHER_URL = "https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_FMjpg_UX1000_.jpg";
+const DUMB_AND_DUMBER_URL = "https://m.media-amazon.com/images/M/MV5BZDQwMjNiMTQtY2UwYy00NjhiLTk0ZWEtZWM5ZWMzNGFjNTVkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_FMjpg_UX1000_.jpg";
 
 // This is an array of strings (TV show titles)
 let titles = [
-    "Fresh Prince of Bel Air",
-    "Curb Your Enthusiasm",
-    "East Los High"
+    "Children of Men",
+    "The Godfather",
+    "Dumb and Dumber"
 ];
 // Your final submission should have much more data than this, and 
 // you should use more than just an array of strings to store it all.
 
 
-// This function adds cards the page to display the data in the array
+// This function adds cards to the page to display the data in the array
 function showCards() {
     const cardContainer = document.getElementById("card-container");
     cardContainer.innerHTML = "";
@@ -47,15 +47,15 @@ function showCards() {
     for (let i = 0; i < titles.length; i++) {
         let title = titles[i];
 
-        // This part of the code doesn't scale very well! After you add your
-        // own data, you'll need to do something totally different here.
+        // This part of the code doesn't scale very well! Use a data structure here.
+        // How do I grab an image URL that corresponds to data the user inputs?
         let imageURL = "";
         if (i == 0) {
-            imageURL = FRESH_PRINCE_URL;
+            imageURL = CHILDREN_OF_MEN_URL;
         } else if (i == 1) {
-            imageURL = CURB_POSTER_URL;
+            imageURL = THE_GODFATHER_URL;
         } else if (i == 2) {
-            imageURL = EAST_LOS_HIGH_POSTER_URL;
+            imageURL = DUMB_AND_DUMBER_URL;
         }
 
         const nextCard = templateCard.cloneNode(true); // Copy the template card
