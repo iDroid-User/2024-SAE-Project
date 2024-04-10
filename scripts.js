@@ -15,12 +15,6 @@
  *    "Inspect" to open the browser developer tools. Then, go to the "console"
  *    tab in the new window that opened up. This console is where you will see
  *    JavaScript errors and logs, which is extremely helpful for debugging.
- *    (These instructions assume you're using Chrome, opening developer tools
- *    may be different on other browsers. We suggest using Chrome.)
- * - 3 - Add another string to the titles array a few lines down. Reload your
- *    browser and observe what happens. You should see a fourth "card" appear
- *    with the string you added to the array, but a broken image.
- * 
  */
 
 
@@ -32,8 +26,69 @@ const DUMB_AND_DUMBER_URL = "https://m.media-amazon.com/images/M/MV5BZDQwMjNiMTQ
 let titles = [
     "Children of Men",
     "The Godfather",
-    "Dumb and Dumber"
+    "Dumb and Dumber",
 ];
+
+// Genres of my favorite movies
+const genres1 = ['sci-fi', 'drama', 'action']; // Children of Men
+const genres2 = ['crime', 'drama']; // The Godfather
+const genres3 = ['comedy']; // Dumb and Dumber
+
+// Favorite lines
+const favline1 = "Baby Diego was stabbed outside a bar in Buenos Aires after refusing to sign an autograph."; // Children of Men
+const favline2 = "I believe in America. America has made my fortune."; // The Godfather
+const favline3 = "We got no food, no jobs; our PETS' HEADS ARE FALLING OFF!"; // Dumb and Dumber
+
+// Favorite scenes (URLs)
+const scene1 = "https://youtu.be/YBzWTIexszQ?si=TeCz4RtQSGFBnCL3"; // Children of Men
+const scene2 = "https://youtu.be/TERvoFSUGKk?si=ai7_7cUSGu-kTU8k"; // The Godfather
+const scene3 = "https://youtu.be/WQBc8yxjdSs?si=oI_3JoTahHv2qnGW"; // Dumb and Dumber
+
+class Movie {
+    constructor(title, releaseYear, genres, favLine, favScene) {
+        this.title = title;
+        this.releaseYear = releaseYear;
+        this.genres = genres;
+        this.favLine = favLine;
+        this.favScene = favScene;
+        this.next = null;
+    }
+};
+
+class LinkedList {
+    constructor() {
+        // Initializes this.head
+        this.head = null;
+    }
+
+    append(...args) {
+        if (null === this.head) {
+            this.head = new Movie(...args); // Adds the first movie // Finish parameter list
+        } else {
+            let tmp = this.head;
+            while (null !== tmp.next) {
+                tmp = tmp.next;
+            }
+            tmp.next = new Movie(...args); // Adds another movie
+        }
+    }
+
+    printTitles(...args) {
+        let tmp = this.head;
+        while (null !== tmp.next) {
+
+        }
+    }
+};
+
+// Create a LinkedList instance
+const movieCollection = new LinkedList();
+
+// Append Movie objects to the linked list
+movieCollection.append(new Movie('Children of Men', 2006, genres1, favline1, scene1));
+movieCollection.append(new Movie('The Godfather', 1974, genres2, favline2, scene2));
+movieCollection.append(new Movie('Dumb and Dumber', 2006, genres3, favline3, scene3));
+
 // Your final submission should have much more data than this, and 
 // you should use more than just an array of strings to store it all.
 
